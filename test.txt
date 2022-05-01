@@ -1,0 +1,28 @@
+Start write!!! 
+Start write!!! 
+Accuracy on test set: (346/1091)31 % 
+Accuracy on test set: (664/1091)60 % 
+Accuracy on test set: (810/1091)74 % 
+Accuracy on test set: (893/1091)81 % 
+Accuracy on test set: (947/1091)86 % 
+Accuracy on test set: (977/1091)89 % 
+Accuracy on test set: (989/1091)90 % 
+Accuracy on test set: (998/1091)91 % 
+Accuracy on test set: (1029/1091)94 % 
+Accuracy on test set: (1023/1091)93 % 
+Start write!!! 
+Accuracy on test set: (2023/3518)57 % 
+Accuracy on test set: (2583/3518)73 % 
+Accuracy on test set: (2809/3518)79 % 
+Accuracy on test set: (2885/3518)82 % 
+Accuracy on test set: (2963/3518)84 % 
+Accuracy on test set: (3006/3518)85 % 
+Accuracy on test set: (3051/3518)86 % 
+Accuracy on test set: (3058/3518)86 % 
+Accuracy on test set: (3102/3518)88 % 
+Accuracy on test set: (3110/3518)88 % 
+Accuracy on test set: (3133/3518)89 % 
+Accuracy on test set: (3147/3518)89 % 
+Accuracy on test set: (3154/3518)89 % 
+Accuracy on test set: (3151/3518)89 % 
+Accuracy on test set: (3176/3518)90 % 
