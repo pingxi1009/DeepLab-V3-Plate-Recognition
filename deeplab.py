@@ -182,7 +182,6 @@ class DeeplabV3(object):
 
         img_plate.save('plate.jpg') # 保存车牌图片
 
-
 # add by pingxi
         #------------------------------------------------#
         #   将新图片和原图片混合

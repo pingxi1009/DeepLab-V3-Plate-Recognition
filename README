@@ -1,2 +1,42 @@
 车牌识别
 2022-5-5
+文件说明：
+1、charData 是存放训练字符图片
+2、sincharpic文件夹是用来存放生成的车牌字符图片
+3、sincharpic\resizepic文件夹是存放resize之后的字符图片
+4、VOCdevkit文件夹是存放训练抠车牌语义分割模型的数据集
+5、tools文件夹是存放一些工具性程序
+6、logs文件夹是存放语义分割训练好的模型
+7、model_data文件夹是存放要用来预测的训练好的语义分割模型，语义分割训练完之后，需要从logs文件夹中取效果最好的模型拷贝到model_data文件夹下，改名为deeplab_mobilenetv2.pth
+8、nets文件夹是存放语义分割deeplab v3+框架代码
+9、chartest.py训练字符识别模型代码
+10、chartrain.py是用来测试字符识别模型代码
+11、cut_plate.py是分割车牌代码
+12、dataload.py testsinpic.py  trainsinpic.py这三个文件是我搭建的识别全部省份的模型训练代码和测试代码，暂时用不到
+13、deeplab.py是deeplab V3的框架代码
+14、filerename.py是我用来批量重命名文件写的小工具
+15、get_miou.py是deeplab V3的框架代码
+16、json_to_dataset.py是deeplab V3的框架代码
+17、predict.py是语义分割模型训练完之后，运行predict.py实现抠车牌的代码
+18、resize.py是规格分割好车牌的算法
+19、summary.py是deeplab V3的框架代码
+20、train.py是训练语义分割模型的代码
+21、voc_annotation.py是deeplab V3的框架代码
+
+项目工程实际操作：
+1、运行train.py开始训练语义分割模型分割车牌，训练时间有点久，耐心等待训练完成
+2、运行predict.py开始分割车牌，输入工程目录下的图片名字（你也可以添加自己的车牌图片）按回车即可分割车牌，分割好之后按‘q’退出
+3、运行cut_plate.py分割车牌
+4、运行resize.py将分割好的字符图片统一格式
+5、运行chartrain.py开始训练字符识别的预训练模型，训练时间有点久，耐心等待训练完成
+6、运行chartest.py识别分割好的字符图片
+到此整个车牌识别就完成了
+
+使用须知：
+1、我的环境是 (win10 64位) + (Python 3.8.3) + (OpenCV 4.5.1) + (Pytorch 1.7.0+cu110)
+2、原博客链接:https://blog.csdn.net/weixin_41645749/article/details/124599578
+
+注意点：
+1、本身抠玩车牌之后没有做畸形矫正，所以用来识别的车牌图片最好是正对着车牌的图片如我工程中的test2.jpg test3.jpg等
+2、整个识别项目性能一般，所以可能识别会有一点点慢，但是个人尚可接受
+欢迎联系我沟通交流，一起进步一起成长1009088103@qq.com
