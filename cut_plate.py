@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-root_path = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\'
+root_path = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\' #根目录，自己的工程需要自己配置，即工程所在目录
 plate_path = 'plate.jpg'
 
 def ReadPlate():
@@ -36,6 +36,7 @@ def ReadPlate():
 
     plate_img = cv2.cvtColor(plate_after_del, cv2.COLOR_BGR2GRAY)  # 转化为灰度图
     _, plate_img = cv2.threshold(plate_img, 125, 255, cv2.THRESH_BINARY)  # 二值化
+    # _, plate_img = cv2.threshold(plate_img, 180, 255, cv2.THRESH_BINARY)  # 二值化
     # cv2.imshow('palat1', plate_img)  # 打印出被抠出来的车牌
 
     # # 腐蚀和膨胀

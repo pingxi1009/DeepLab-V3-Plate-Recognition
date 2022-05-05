@@ -5,8 +5,14 @@ import os
 from PIL import Image
 
 # 初始化根目录
-train_path = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\charData\\resize\\train4\\'
-test_path = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\charData\\resize\\test4\\'
+# train_path = 'charData\\resize\\train4\\'    # 省份和字母数字训练一个模型
+# test_path = 'charData\\resize\\test4\\'
+
+# train_path = 'charData\\fenkai\\shuzizimu\\train\\'  # 单独训练数字字母
+# test_path = 'charData\\fenkai\\shuzizimu\\test\\'
+
+train_path = 'charData\\fenkai\\shengfen\\train\\'    # 单独训练省份
+test_path = 'charData\\fenkai\\shengfen\\test\\'
 
 # 定义读取文件的格式
 # 数据集

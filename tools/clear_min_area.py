@@ -16,12 +16,12 @@ def Clear_Micor_Areas(img):
     #     area = cv2.contourArea(conyours[index])
     #     print(area)
 
-    kernel_X = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 1))  # 定义矩形卷积核
-    mark = cv2.dilate(img, kernel_X, (-1, -1), iterations=1)  # 膨胀操作
+    kernel_X = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 1))    # 定义矩形卷积核
+    mark = cv2.dilate(img, kernel_X, (-1, -1), iterations=1)        # 横向膨胀操作
     # cv2.imshow('erode', mark)
 
-    kernel_Y = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 2))  # 定义矩形卷积核
-    mark = cv2.dilate(mark, kernel_Y, (-1, -1), iterations=1)  # 膨胀操作
+    kernel_Y = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 2))    # 定义矩形卷积核
+    mark = cv2.dilate(mark, kernel_Y, (-1, -1), iterations=1)       # 纵向膨胀操作
     # cv2.imshow('erode', mark)
 
     conyours, h = cv2.findContours(mark, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -33,12 +33,12 @@ def Clear_Micor_Areas(img):
         rect = cv2.boundingRect(conyours[jndex])
         print(rect)
         curRectArea = rect[2]*rect[3]
-        maxAreaRect = maxAreaRect if maxAreaRect > curRectArea else curRectArea
+        maxAreaRect = maxAreaRect if maxAreaRect > curRectArea else curRectArea # 将面积最大的矩形取出
 
     print("maxarea = ",maxAreaRect)
 
     cv2.waitKey(0)
-    return rect
+    return rect # 返回最大的矩形，即车牌所在的矩形
 
 def GetBigstArea():
     # 轮廓检测时，对象必须是白色的，背景是黑色的。

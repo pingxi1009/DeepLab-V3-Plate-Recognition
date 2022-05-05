@@ -14,10 +14,12 @@ IMG_WIDTH = 33
 images = []
 labels = []
 
-ORIGIN_IMG_PATH = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\sincharpic\\'
-RESIZE_IMG_PATH = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\sincharpic\\resizepic\\'
-# ORIGIN_IMG_PATH = 'D:\\Git Store\\Transfer_Learning_2021-11-28\\charData\\origin\\train4\\'
-# RESIZE_IMG_PATH = 'D:\\Git Store\\Transfer_Learning_2021-11-28\\charData\\resize\\train4\\'
+ORIGIN_IMG_PATH = 'sincharpic\\'
+RESIZE_IMG_PATH = 'sincharpic\\resizepic\\'
+# ORIGIN_IMG_PATH = 'D:\\DeapLearn Project\\ License plate recognition\\data\\china car\\JPG_Data\\fenkai\\shuzizimu\\train\\'
+# RESIZE_IMG_PATH = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\charData\\resize\\fenkai\\shuzizimu\\train\\'
+# ORIGIN_IMG_PATH = 'C:\\Users\\MSI\\Desktop\\data\\Letnet\\Letnet\\gan'
+# RESIZE_IMG_PATH = 'C:\\Users\\MSI\\Desktop\\resize\\gan'
 
 def resize_image(image, height = IMAGE_HEIGHT, width = IMAGE_WIDTH):
     top, botton, left, right = 0, 0, 0, 0
@@ -68,6 +70,7 @@ def load_dataset(path_name):
     for i in range(len(images)):
         if not os.path.exists(resizedata_path):
             os.mkdir(resizedata_path)
+        # img_name = '%s//%s' % (resizedata_path, labels[i])
         img_name = '%s//%s' % (resizedata_path, labels[i])
         cv2.imwrite(img_name, images[i])
 

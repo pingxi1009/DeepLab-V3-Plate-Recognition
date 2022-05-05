@@ -8,7 +8,7 @@ import time
 import math
 
 LR = 0.0005    # 设置学习率
-EPOCH_NUM = 15  # 训练轮次
+# EPOCH_NUM = 15  # 训练轮次
 
 def time_since(since):
     s = time.time() - since
@@ -45,22 +45,16 @@ class SingleCharNet1(nn.Module):
         return x
 
 
-# 方法二：网络最后一层分类层fc是对1000种类型进行划分，对于自己的数据集，如果只有2类
-class Dgo_Cat_Net2(nn.Module):
-    def __init__(self, num_classes=2):
-        super(Dgo_Cat_Net2, self).__init__()
+# model = SingleCharNet1(num_classes=65)  # 省份和数字字母一起训练
+if 0:
+    model = SingleCharNet1(num_classes=34)  # 数字和字母一起训练
+    modelname = 'SingleCharZifuModel.pth'
+    EPOCH_NUM = 15  # 训练轮次
+else:
+    model = SingleCharNet1(num_classes=31)  # 省份单独训练
+    modelname = 'SingleCharShengModel.pth'
+    EPOCH_NUM = 30  # 训练轮次
 
-        # pretrained=True 加载网络结构和预训练参数，False 时代表只加载网络结构，不加载预训练参数，即不需要用预训练模型的参数来初始化
-        # pretrained 参数默认是False,为了代码清晰，最好还是加上参数赋值
-        self.model = models.resnet50(pretrained=True)                                   # 调用模型
-        fc_features = self.model.fc.in_features                                         # 提取 fc 层中固定的参数 in_features
-        self.model.fc = nn.Linear(in_features=fc_features, out_features=num_classes)    # 修改 fc 层中 out_features 参数，修改分类为9
-
-    def forward(self, x):
-        x = self.model(x)
-        return x
-
-model = SingleCharNet1(num_classes=65)
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
@@ -114,6 +108,7 @@ def train(epoch, loss_list):
         loss.backward()
         optimizer.step()
 
+        # print('train:', batch_idx)
         loss_list.append(loss.item())
         running_loss += loss.item()
         if batch_idx % 100 == 99:
@@ -150,7 +145,8 @@ if __name__ == '__main__':
     for epoch in range(EPOCH_NUM):
         train(epoch, loss_list)
         test()
-    torch.save(model.state_dict(), 'SingleCharModel.pth')
+
+    torch.save(model.state_dict(), modelname)
 
     x_ori = []
     for i in range(len(loss_list)):

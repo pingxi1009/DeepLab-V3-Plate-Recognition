@@ -171,16 +171,16 @@ class DeeplabV3(object):
         plate_img.show()
         _, plate_img = cv2.threshold(np.asarray(plate_img), 20, 255, cv2.THRESH_BINARY)  # 二值化
         # cv2.imshow("hee",plate_img)
-        rect = clear_min_area.Clear_Micor_Areas(plate_img)
+        rect = clear_min_area.Clear_Micor_Areas(plate_img)  # 寻找车牌车牌所在的矩形
         print("match rect is:",rect)
         # new_mat = cv2.cvtColor(np.asarray(old_img), cv2.COLOR_RGB2BGR)
         # new_mat_plate = new_mat[rect[0]:rect[2], rect[1]:rect[3]]
         # cv2.imshow("hello", new_mat)
 
-        img_plate = old_img.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+        img_plate = old_img.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))  # 根据车牌所在的矩形，切割出车牌
         img_plate.show()
 
-        img_plate.save('plate.jpg')
+        img_plate.save('plate.jpg') # 保存车牌图片
 
 
 # add by pingxi
