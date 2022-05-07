@@ -7,7 +7,6 @@ import cv2
 import numpy as np
 from PIL import Image
 
-root_path = 'D:\\DeapLearn Project\\DeepLab V3 Plate Recognition\\' #根目录，自己的工程需要自己配置，即工程所在目录
 plate_path = 'plate.jpg'
 
 def ReadPlate():
@@ -35,7 +34,7 @@ def ReadPlate():
     plate_after_del = img[after_del_y:after_del_y+after_del_height, after_del_x:after_del_x+after_del_width]
 
     plate_img = cv2.cvtColor(plate_after_del, cv2.COLOR_BGR2GRAY)  # 转化为灰度图
-    _, plate_img = cv2.threshold(plate_img, 125, 255, cv2.THRESH_BINARY)  # 二值化
+    _, plate_img = cv2.threshold(plate_img, 180, 255, cv2.THRESH_BINARY)  # 二值化
     # _, plate_img = cv2.threshold(plate_img, 180, 255, cv2.THRESH_BINARY)  # 二值化
     # cv2.imshow('palat1', plate_img)  # 打印出被抠出来的车牌
 
@@ -111,31 +110,31 @@ def ReadPlate():
     # 开始分割字符
     char_1_img = mark[:, char_1_start_index:char_1_start_index + single_char_width + 2]
     cv2.imshow('charpic1', char_1_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{1}.jpg',char_1_img)
+    cv2.imwrite('sincharpic\\1.jpg',char_1_img)
 
     char_2_img = mark[:, char_2_start_index - 2:char_2_start_index + single_char_width + 2]
     cv2.imshow('charpic2', char_2_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{2}.jpg', char_2_img)
+    cv2.imwrite('sincharpic\\2.jpg', char_2_img)
 
     char_3_img = mark[:, char_3_start_index - 2:char_3_start_index + single_char_width + 2]
     cv2.imshow('charpic3', char_3_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{3}.jpg', char_3_img)
+    cv2.imwrite('sincharpic\\3.jpg', char_3_img)
 
     char_4_img = mark[:, char_4_start_index - 2:char_4_start_index + single_char_width + 2]
     cv2.imshow('charpic4', char_4_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{4}.jpg', char_4_img)
+    cv2.imwrite('sincharpic\\4.jpg', char_4_img)
 
     char_5_img = mark[:, char_5_start_index - 2:char_5_start_index + single_char_width + 2]
     cv2.imshow('charpic5', char_5_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{5}.jpg', char_5_img)
+    cv2.imwrite('sincharpic\\5.jpg', char_5_img)
 
     char_6_img = mark[:, char_6_start_index - 2:char_6_start_index + single_char_width + 2]
     cv2.imshow('charpic6', char_6_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{6}.jpg', char_6_img)
+    cv2.imwrite('sincharpic\\6.jpg', char_6_img)
 
     char_7_img = mark[:, char_7_start_index - 2:char_7_start_index + single_char_width]
     cv2.imshow('charpic7', char_7_img)  # 打印出被抠出来的车牌单个字符
-    cv2.imwrite(f'{root_path}\\sincharpic\\{7}.jpg', char_7_img)
+    cv2.imwrite('sincharpic\\7.jpg', char_7_img)
 
 
     cv2.waitKey(0)
